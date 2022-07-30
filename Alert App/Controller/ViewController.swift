@@ -3,37 +3,60 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: IBOutlets
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var addTwoNumberLabel: UILabel!
     @IBOutlet weak var guesTheNumberLabel: UILabel!
-    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var reverseLabel: UILabel!
     
     @IBOutlet weak var addTwoNumberButton: UIButton!
     @IBOutlet weak var guessNumberButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var reverseButton: UIButton!
     
-    let model = Reverse()
+    // Model
+    let reverse = Reverse()
     
-    
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingLabel.isHidden = true
         
         addTwoNumberLabel.textColor = .green
-        addTwoNumberButton.layer.cornerRadius = 10
         addTwoNumberLabel.isHidden = true
+        addTwoNumberButton.layer.cornerRadius = 10
         
         guesTheNumberLabel.textColor = .green
-        guessNumberButton.layer.cornerRadius = 10
         guesTheNumberLabel.isHidden = true
+        guessNumberButton.layer.cornerRadius = 10
         
-        startLabel.textColor = .green
-        startLabel.isHidden = true
+        reverseLabel.textColor = .green
+        reverseLabel.isHidden = true
+        reverseButton.layer.cornerRadius = 10
     }
     
+    // MARK: Greeting notification
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let alertController = UIAlertController(title: "Hello", message: "Enter Your name", preferredStyle: .alert)
+        greeting(title: "Hi", message: "What's your name?", style: .actionSheet)
+    }
+    
+    // MARK: IBActions
+    @IBAction func addTwoNumberPressed() {
+        addTwoNumbers(title: "Game 1", message: "Enter Two Number", style: .alert)
+    }
+    
+    @IBAction func guessTheNumberPressed() {
+        guessNumber(title: "Game 2", message: "Guess the number from 1 to 5", style: .alert)
+    }
+    
+    @IBAction func reverseButtonPressed() {
+        reverseStr(title: "Game3", message: "Enter Word", style: .alert)
+    }
+    
+    // MARK: Greeting alert func
+    
+    func greeting(title: String, message: String, style: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
             self.greetingLabel.isHidden = false
             let text = alertController.textFields?.first?.text
@@ -46,8 +69,9 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    @IBAction func addTwoNumberPressed() {
-        let alertController = UIAlertController(title: "Add Two Number", message: "Enter two Number", preferredStyle: .alert)
+    // MARK: Func of adding two numbers
+    func addTwoNumbers(title: String, message: String, style: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
             self.addTwoNumberLabel.isHidden = false
             let firstNumber = Int(alertController.textFields?.first?.text ?? "0")
@@ -63,8 +87,9 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    @IBAction func guessTheNumberPressed() {
-        let alertController = UIAlertController(title: "Game", message: "Guess the number from 1 to 5", preferredStyle: .alert)
+    // MARK: Func of guessing numbers
+    func guessNumber(title: String, message: String, style: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
             self.guesTheNumberLabel.isHidden = false
             let randomNumber = String(Int.random(in: 1...5))
@@ -80,20 +105,19 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    @IBAction func startButtonPressed() {
-        let alertController = UIAlertController(title: "Game", message: "Enter word", preferredStyle: .alert)
+    // MARK: Func of line flipping
+    func reverseStr(title: String, message: String, style: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title, message: "Enter word", preferredStyle: style)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
-            self.startLabel.isHidden = false
+            self.reverseLabel.isHidden = false
             let word = alertController.textFields?.first?.text
-            
-            self.startLabel.text = self.model.reverseString(word ?? "")
+
+            self.reverseLabel.text = self.reverse.reverseString(word ?? "")
         }
-        
+
         alertController.addTextField()
         alertController.addAction(action)
-        
+
         self.present(alertController, animated: true)
     }
-    
 }
-

@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HW_alert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Alert_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="2JP-1e-46n"/>
+                                    <action selector="reverseButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="lfw-ml-RCK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1i-p3-vZ3">
@@ -114,8 +114,8 @@
                         <outlet property="greetingLabel" destination="3Ur-Cf-ED7" id="8tH-bg-qoi"/>
                         <outlet property="guesTheNumberLabel" destination="2UR-DV-PzA" id="R8i-D9-PXQ"/>
                         <outlet property="guessNumberButton" destination="lG2-dZ-j90" id="D9c-cb-kVx"/>
-                        <outlet property="startButton" destination="ySe-ky-5lj" id="Bfq-PX-35j"/>
-                        <outlet property="startLabel" destination="Z1i-p3-vZ3" id="pe9-0x-g48"/>
+                        <outlet property="reverseButton" destination="ySe-ky-5lj" id="KfV-HX-5p4"/>
+                        <outlet property="reverseLabel" destination="Z1i-p3-vZ3" id="rLb-ak-aDC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

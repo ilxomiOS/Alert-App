@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  Alert App
-//
-//  Created by Ilxom on 30/07/22.
-//
 
 import UIKit
 
